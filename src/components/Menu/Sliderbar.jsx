@@ -1,14 +1,25 @@
 import { BiComment } from "react-icons/bi";
+import {
+  FiChevronDown,
+  FiChevronsDown,
+  FiMessageSquare,
+  FiImage,
+  FiFolder,
+} from "react-icons/fi";
+
 import { TbUsers, TbDoorExit } from "react-icons/tb";
 import { IoBarChartOutline, IoPaperPlaneOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Conainter } from "./styles";
+import { Conainter, Submenu, Icon, Name, DropdownLink } from "./styles";
 
 export const Sliderbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const [subnav, setSubnav] = useState(false);
+
+  const showSubnav = () => setSubnav(!subnav);
   const menuItem = [
     {
       path: "/",
@@ -16,9 +27,36 @@ export const Sliderbar = () => {
       icon: <IoBarChartOutline />,
     },
     {
-      path: "/text",
+      path: "#",
       name: "Enviar mensagem",
       icon: <IoPaperPlaneOutline />,
+      iconClosed: <FiChevronDown style={{ marginBottom: "-0.3rem" }} />,
+      iconOpened: (
+        <FiChevronsDown
+          style={{
+            color: "#30343c",
+            marginBottom: "-0.3rem",
+          }}
+        />
+      ),
+
+      subNav: [
+        {
+          name: "Enviar texto",
+          path: "/text",
+          icon: <FiMessageSquare style={{ color: "#6495ed" }} />,
+        },
+        {
+          name: "Enviar imagem",
+          path: "/text",
+          icon: <FiImage style={{ color: "#6495ed" }} />,
+        },
+        {
+          name: "Enviar arquivo",
+          path: "/Double",
+          icon: <FiFolder style={{ color: "#6495ed" }} />,
+        },
+      ],
     },
     {
       path: "/home",
@@ -87,22 +125,41 @@ export const Sliderbar = () => {
             className="link"
             activeClasseName="active"
           >
-            <div
+            <Icon
               className="icon"
-              style={{ fontWeigt: "900", color: "#646565" }}
+              style={{
+                fontWeigt: "900",
+                color: "#7b7d7d",
+                fontSize: isOpen ? "1rem" : "1.5rem",
+                marginTop: isOpen ? "" : "0.8rem",
+                marginLeft: isOpen ? "" : "5px",
+              }}
             >
               {item.icon}
-            </div>
-            <div
-              className="link_text"
+            </Icon>
+            <Name
               style={{
                 opacity: "1",
                 display: isOpen ? "block" : "none",
-                transition: "3s",
               }}
+              onClick={item.subNav && showSubnav}
             >
               {item.name}
-            </div>
+              {item.subNav && subnav
+                ? item.iconOpened
+                : item.subNav
+                ? item.iconClosed
+                : null}
+              <Submenu>
+                {subnav &&
+                  item.subNav?.map((item, subindex) => (
+                    <DropdownLink to={item.path} key={subindex}>
+                      {item.icon}
+                      {item.name}
+                    </DropdownLink>
+                  ))}
+              </Submenu>
+            </Name>
           </NavLink>
         ))}
       </div>

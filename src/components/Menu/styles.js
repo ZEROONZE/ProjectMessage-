@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const moveToRight = keyframes`
@@ -25,7 +26,7 @@ export const Conainter = styled.div`
 
   .main {
     width: 100%;
-    padding: 1.3rem;
+    padding: 1rem;
     z-index: 3;
   }
 
@@ -40,6 +41,7 @@ export const Conainter = styled.div`
 
   .top_section {
     display: flex;
+    margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
     align-items: center;
@@ -62,13 +64,10 @@ export const Conainter = styled.div`
     color: #babfc7;
     line-height: 1.15rem;
     font-weight: 500;
-    padding: 0.9rem 0.4rem;
-    gap: 1rem;
+    padding: 0.6rem 0.4rem;
+    gap: 0.6rem;
   }
-  .link:hover {
-    color: #fff;
-    animation: ${moveToRight} 0s;
-  }
+
   .active {
     color: #babfc7;
     font-weight: bold;
@@ -77,22 +76,74 @@ export const Conainter = styled.div`
   .link_text {
     font-size: 1rem;
 
-    margin-left: 0.3rem;
-  }
-  .link_text {
-    animation: ${moveToRight} 0.6s;
-    font-size: 1.1rem;
-    font-family: "Montserrat", Helvetica, Arial, serif;
-    font-weight: 500;
+    margin-left: 0.6rem;
   }
   .icon {
-    display: flex;
-    font-size: 1.1rem;
-    font-weight: bold;
+    &:hover {
+      color: #d7d7d7;
+      cursor: pointer;
+      color: #000;
+      border-radius: 0.2rem;
+    }
+  }
+`;
+export const Submenu = styled.div`
+  margin-top: 1rem;
+`;
 
-    justify-content: first baseline;
-    align-items: flex-start;
+export const Icon = styled.div`
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: bold;
 
-    margin-left: 0.5rem;
+  justify-content: first baseline;
+  align-items: flex-start;
+
+  margin-left: 0.5rem;
+  &:hover {
+    color: #d7d7d7;
+    cursor: pointer;
+    color: #000;
+    border-radius: 0.2rem;
+  }
+`;
+export const Name = styled.div`
+  font-size: 1rem;
+  animation: ${moveToRight} 0.6s;
+  font-size: 1.1rem;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-weight: 500;
+  margin-left: 0.3rem;
+
+  &:hover {
+    color: #d7d7d7;
+    cursor: pointer;
+    color: #000;
+    border-radius: 0.2rem;
+  }
+`;
+export const DropdownLink = styled(Link)`
+  font-size: 1rem;
+
+  animation: ${moveToRight} 0.6s;
+  font-size: 1.1rem;
+  font-family: "Montserrat", Helvetica, Arial, serif;
+  font-weight: 500;
+  margin-left: -1.5rem;
+  text-decoration: none;
+
+  display: flex;
+
+  color: #babfc7;
+  line-height: 1.15rem;
+  font-weight: 500;
+  padding: 1rem 0.9rem;
+  gap: 1rem;
+
+  &:hover {
+    background: #d7d7d7;
+    cursor: pointer;
+    color: #000;
+    border-radius: 0.2rem;
   }
 `;

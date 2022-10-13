@@ -70,14 +70,14 @@ const MenssagemText: React.FC = () => {
                   }}
                 />
               </label>
-              {loading ? (
-                <ColorRing height={77} width={75} />
-              ) : (
-                <button onClick={Submit} disabled={loading} className="buttom">
-                  Enviar
-                </button>
-              )}
             </form>
+            {loading ? (
+              <ColorRing height={60} width={60} />
+            ) : (
+              <button onClick={Submit} disabled={loading} className="buttom">
+                Enviar
+              </button>
+            )}
 
             <div className="img-foto1">
               <div className="img-foto2">

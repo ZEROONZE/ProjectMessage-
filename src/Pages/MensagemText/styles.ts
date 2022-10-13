@@ -141,7 +141,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.7rem;
   }
   .buttom:hover {
     transform: (1.05);
@@ -167,19 +167,20 @@ export const Container = styled.div`
   .text {
     height: 3.95rem;
     width: 300px;
-    color: #d7d7d7;
+    color: #ddd;
     background-color: #fff;
     border-radius: 0.4rem;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-top: 1rem;
+
     font-family: Poppins, sans-serif;
   }
   .text-1 {
     height: 3.05rem;
     width: 300px;
-    color: #d7d7d7;
+    color: #000;
     background-color: #fff;
     border-radius: 0.4rem;
     justify-content: center;
